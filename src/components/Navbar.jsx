@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Mail, Sun, Moon } from 'lucide-react';
 
 const Navbar = ({ isScrolled, activeSection }) => {
@@ -14,260 +13,115 @@ const Navbar = ({ isScrolled, activeSection }) => {
     { href: '#contact', label: 'Contact' },
   ];
 
-  const socialLinks = [
-    { icon: <Github size={20} />, href: 'https://github.com/AKOLTINOBRIDGET', label: 'GitHub', color: 'hover:text-purple-600 dark:hover:text-purple-400' },
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn', color: 'hover:text-blue-600 dark:hover:text-blue-400' },
-    { icon: <Mail size={20} />, href: 'mailto:akoltinobridget03@gmail.com', label: 'Email', color: 'hover:text-indigo-600 dark:hover:text-indigo-400' },
-  ];
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.documentElement.classList.toggle('dark');
-  };
-
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-500  top-0 ${
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-200 dark:border-gray-800' 
-          : 'bg-transparent py-5'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-4 border-b border-gray-100' 
+          : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-8">
+      <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
-          <motion.a
-            href="#home"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-3 group"
-          >
-            <div className="relative">
-              {/* Logo image with fallback */}
-              <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-br from-rose-300 via-rose-200 to-amber-200 dark:from-rose-400 dark:via-rose-300 dark:to-amber-300 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
-                <img 
-                  src="/logo.png" 
-                  alt="ATB Logo" 
-                  className="w-full h-full object-contain"
-                  onError={(e) => {
-                    // Fallback to gradient with initials
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<span class="text-gray-900 dark:text-gray-800 font-bold text-lg">ATB</span>';
-                  }}
-                />
-              </div>
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-rose-400 to-amber-400 rounded-xl opacity-0 group-hover:opacity-20 blur-lg transition-opacity"></div>
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">A</span>
             </div>
-            
-            <div className="hidden sm:block">
-              <div className="text-xl font-bold bg-gradient-to-r from-rose-400 via-rose-300 to-amber-300 dark:from-rose-300 dark:via-rose-200 dark:to-amber-200 bg-clip-text text-transparent">
-                AKOL TINO BRIDGET
-              </div>
-              <div className="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wider">
-                GET IT DONE
-              </div>
+            <div className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              AKOL TINO BRIDGET
             </div>
-          </motion.a>
+          </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {navLinks.map((link, index) => (
-              <motion.a
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <a
                 key={link.href}
                 href={link.href}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -2 }}
-                className={`relative px-4 py-2 transition-all duration-300 rounded-lg ${
+                className={`relative transition-all duration-300 py-2 ${
                   activeSection === link.href.slice(1)
-                    ? 'text-indigo-600 dark:text-indigo-400 font-semibold'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium'
+                    ? 'text-indigo-600 font-medium'
+                    : 'text-gray-700 hover:text-indigo-600'
                 }`}
               >
                 {link.label}
                 {activeSection === link.href.slice(1) && (
-                  <motion.span
-                    layoutId="navbar-indicator"
-                    className="absolute inset-0 bg-indigo-50 dark:bg-indigo-950/50 rounded-lg -z-10"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
+                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full"></span>
                 )}
-              </motion.a>
+              </a>
             ))}
           </div>
           
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center space-x-2">
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 180 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={toggleDarkMode}
-              className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
-              aria-label="Toggle dark mode"
+          <div className="hidden md:flex items-center space-x-4">
+            <button 
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              <AnimatePresence mode="wait" initial={false}>
-                {isDarkMode ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Sun size={20} />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <Moon size={20} />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
-
-            <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2"></div>
-            
-            {socialLinks.map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.href}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.9 }}
-                className={`p-2.5 rounded-xl transition-all duration-300 text-gray-600 dark:text-gray-400 ${social.color} hover:bg-gray-100 dark:hover:bg-gray-800`}
-                aria-label={social.label}
-              >
-                {social.icon}
-              </motion.a>
-            ))}
-
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Hire Me
-            </motion.a>
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            <a href="#" className="text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 p-2 hover:bg-indigo-50 rounded-lg">
+              <Github size={20} />
+            </a>
+            <a href="#" className="text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 p-2 hover:bg-indigo-50 rounded-lg">
+              <Linkedin size={20} />
+            </a>
+            <a href="#" className="text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 p-2 hover:bg-indigo-50 rounded-lg">
+              <Mail size={20} />
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="lg:hidden text-gray-700 dark:text-gray-300 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl transition-colors"
+          <button
+            className="md:hidden text-gray-700 p-2 hover:bg-indigo-50 rounded-lg transition"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
           >
-            <AnimatePresence mode="wait" initial={false}>
-              {isMenuOpen ? (
-                <motion.div
-                  key="close"
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <X size={24} />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="menu"
-                  initial={{ rotate: 90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <Menu size={24} />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.button>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
         
         {/* Mobile Navigation */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
-            >
-              <div className="mt-4 pb-4 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-6 border border-gray-200 dark:border-gray-800">
-                <div className="flex flex-col space-y-2">
-                  {navLinks.map((link, index) => (
-                    <motion.a
-                      key={link.href}
-                      href={link.href}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      className={`transition-all duration-300 py-3 px-4 rounded-xl font-medium ${
-                        activeSection === link.href.slice(1)
-                          ? 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50'
-                          : 'text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </motion.a>
-                  ))}
-
-                  <motion.a
-                    href="#contact"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navLinks.length * 0.05 }}
-                    className="mt-2 py-3 px-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold rounded-xl text-center shadow-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Hire Me
-                  </motion.a>
-                  
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-800">
-                    <motion.button
-                      whileTap={{ scale: 0.9 }}
-                      onClick={toggleDarkMode}
-                      className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
-                      aria-label="Toggle dark mode"
-                    >
-                      {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-                    </motion.button>
-                    
-                    <div className="flex space-x-2">
-                      {socialLinks.map((social, index) => (
-                        <motion.a
-                          key={index}
-                          href={social.href}
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.3 + index * 0.05 }}
-                          whileTap={{ scale: 0.9 }}
-                          className={`p-2.5 rounded-xl transition-all duration-300 text-gray-600 dark:text-gray-400 ${social.color} hover:bg-gray-100 dark:hover:bg-gray-800`}
-                          aria-label={social.label}
-                        >
-                          {social.icon}
-                        </motion.a>
-                      ))}
-                    </div>
-                  </div>
+        {isMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+            <div className="flex flex-col space-y-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`transition-colors duration-300 py-3 px-4 rounded-xl ${
+                    activeSection === link.href.slice(1)
+                      ? 'text-indigo-600 font-medium bg-indigo-50'
+                      : 'text-gray-700 hover:text-indigo-600 hover:bg-gray-50'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                <button 
+                  onClick={() => setIsDarkMode(!isDarkMode)}
+                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                >
+                  {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                </button>
+                <div className="flex space-x-3">
+                  <a href="#" className="text-gray-600 hover:text-indigo-600 transition p-2 hover:bg-indigo-50 rounded-lg">
+                    <Github size={20} />
+                  </a>
+                  <a href="#" className="text-gray-600 hover:text-indigo-600 transition p-2 hover:bg-indigo-50 rounded-lg">
+                    <Linkedin size={20} />
+                  </a>
+                  <a href="#" className="text-gray-600 hover:text-indigo-600 transition p-2 hover:bg-indigo-50 rounded-lg">
+                    <Mail size={20} />
+                  </a>
                 </div>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

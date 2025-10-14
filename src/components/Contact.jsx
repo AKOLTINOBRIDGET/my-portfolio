@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-rea
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
 
+
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
