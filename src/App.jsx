@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-0 mt-0">
       <Navbar isScrolled={isScrolled} activeSection={activeSection} />
       <Home />
       <About />
