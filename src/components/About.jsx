@@ -75,7 +75,7 @@ const About = () => {
               <motion.div variants={itemVariants} className="relative">
                 <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-indigo-600 to-purple-600 rounded-full"></div>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed pl-4">
-                  I'm a passionate frontend developer with 5+ years of experience creating beautiful, 
+                  I'm a passionate frontend developer with 2 years of experience creating beautiful, 
                   responsive web applications. I specialize in React, JavaScript, and modern CSS frameworks 
                   like Tailwind CSS.
                 </p>
@@ -91,8 +91,8 @@ const About = () => {
 
               <motion.div variants={itemVariants}>
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source 
-                  projects, or enjoying a good cup of coffee <Coffee size={18} className="inline text-amber-600 dark:text-amber-400" /> 
+                  When I'm not coding, you can find me exploring new technologies, engaged in embended systems which i have basics
+                 , or enjoying a good cup of coffee <Coffee size={18} className="inline text-amber-600 dark:text-amber-400" /> 
                   while reading about the latest web trends.
                 </p>
               </motion.div>

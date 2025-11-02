@@ -16,12 +16,11 @@ const Projects = () => {
         "A comprehensive data management platform for NGOs to manage projects, HR, and M&E workflows efficiently.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
       image: "from-blue-600 to-green-400",
-      github: "https://github.com/yourusername/onims",
-      live: "https://hold-the-child-onims.onrender.com",
-      video: onimsVideo, // ✅ Local video import
+      github: "https://github.com/AKOLTINORIDGET/onims",
+      video: onimsVideo, 
       screenshots: [onimsDashboard, onimsHR, onimsProjects],
       featured: true,
-      date: "2024",
+      date: "2025",
     },
     {
       title: "Portfolio CMS",
@@ -29,8 +28,8 @@ const Projects = () => {
         "A content management system for creative professionals with customizable templates and SEO optimization.",
       technologies: ["Next.js", "Prisma", "PostgreSQL", "TailwindCSS"],
       image: "from-purple-500 to-pink-500",
-      github: "#",
-      live: "#",
+      github: "https://github.com/AKOLTINORIDGET/my-portfolio",
+      // live: "#",
       featured: false,
       date: "2023",
     },
@@ -108,7 +107,6 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
                   >
-                    <ExternalLink size={16} /> Live Demo
                   </a>
 
                   {project.video && (
