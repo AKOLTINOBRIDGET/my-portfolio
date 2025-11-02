@@ -141,7 +141,7 @@ const Home = () => {
                 <Github size={24} />
               </motion.a>
               <motion.a 
-                href="#"
+                href="https://www.linkedin.com/in/bridget-tino-akol-a6912a356"
                 whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 className="bg-white/10 backdrop-blur-sm p-3 rounded-full hover:bg-white hover:text-indigo-600 transition-all border border-white/20"
