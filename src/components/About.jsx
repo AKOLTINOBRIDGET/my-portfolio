@@ -4,10 +4,10 @@ import { Code, Palette, Zap, Award, Coffee, Heart, Sparkles } from 'lucide-react
 
 const About = () => {
   const stats = [
-    { icon: <Code className="h-6 w-6" />, value: "50+", label: "Projects Completed", color: "from-blue-500 to-cyan-500" },
-    { icon: <Palette className="h-6 w-6" />, value: "5+", label: "Years Experience", color: "from-purple-500 to-pink-500" },
-    { icon: <Zap className="h-6 w-6" />, value: "30+", label: "Happy Clients", color: "from-orange-500 to-red-500" },
-    { icon: <Award className="h-6 w-6" />, value: "10+", label: "Open Source", color: "from-green-500 to-emerald-500" },
+    { icon: <Code className="h-6 w-6" />, value: "2+", label: "Projects Completed", color: "from-blue-500 to-cyan-500" },
+    { icon: <Palette className="h-6 w-6" />, value: "2+", label: "Years Experience", color: "from-purple-500 to-pink-500" },
+    { icon: <Zap className="h-6 w-6" />, value: "4+", label: "Happy Clients", color: "from-orange-500 to-red-500" },
+    { icon: <Award className="h-6 w-6" />, value: "0+", label: "Open Source", color: "from-green-500 to-emerald-500" },
   ];
 
   const highlights = [
