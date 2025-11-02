@@ -14,19 +14,25 @@ const Skills = () => {
     {
       category: "Frontend Development",
       skills: [
-        { name: "React", level: 90, icon: <Code2 size={20} /> },
-        { name: "JavaScript / TypeScript", level: 95, icon: <Code2 size={20} /> },
+        { name: "React", level: 70, icon: <Code2 size={20} /> },
+        { name: "JavaScript ", level: 50, icon: <Code2 size={20} /> },
         { name: "HTML / CSS", level: 98, icon: <Code2 size={20} /> },
         { name: "Tailwind CSS", level: 85, icon: <Palette size={20} /> },
-        { name: "Responsive Design", level: 95, icon: <Smartphone size={20} /> },
+        { name: "Responsive Design", level: 85, icon: <Smartphone size={20} /> },
         { name: "Performance Optimization", level: 85, icon: <Zap size={20} /> },
       ]
     },
     {
       category: "Backend & Tools",
       skills: [
-        { name: "Node.js", level: 75, icon: <Database size={20} /> },
-        { name: "UI/UX Design", level: 80, icon: <Palette size={20} /> },
+        { name: "Node.js", level: 70, icon: <Database size={20} /> },
+        { name: "UI/UX Design", level: 70, icon: <Palette size={20} /> },
+      ]
+    },
+    
+    {
+      skills: [
+        { name: "python", level: 40, icon: <Database size={20} /> },
       ]
     }
   ];
@@ -34,7 +40,6 @@ const Skills = () => {
   const technologies = [
     { name: "React", color: "from-cyan-500 to-blue-500" },
     { name: "JavaScript", color: "from-yellow-400 to-orange-500" },
-    { name: "TypeScript", color: "from-blue-500 to-blue-600" },
     { name: "HTML5", color: "from-orange-500 to-red-500" },
     { name: "CSS3", color: "from-blue-400 to-blue-500" },
     { name: "Tailwind CSS", color: "from-teal-400 to-cyan-500" },
@@ -43,7 +48,10 @@ const Skills = () => {
     { name: "MongoDB", color: "from-green-600 to-green-700" },
     { name: "Git", color: "from-orange-600 to-red-600" },
     { name: "Figma", color: "from-purple-500 to-pink-500" },
-    { name: "Adobe XD", color: "from-pink-500 to-purple-600" },
+    { name: "Adobe in Design", color: "from-pink-500 to-purple-600" },
+    { name: "Python", color: "from-peach-500 to-purple-600" },
+
+
   ];
 
   const containerVariants = {
