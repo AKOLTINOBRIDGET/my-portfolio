@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import portfolio1 from '../assets/portfolio1.jpg';
+import portfolio2 from '../assets/portfolio2.jpg';
 import { Github, Linkedin, Mail, Download, ArrowDown, Sparkles, Code2 } from 'lucide-react';
 
 const Home = () => {
@@ -177,7 +177,7 @@ const Home = () => {
                 transition={{ duration: 0.3 }}
               >
                 <img 
-                  src={portfolio1} 
+                  src={portfolio2} 
                   alt="AKOL TINO BRIDGET - Frontend Developer" 
                   className="w-full h-full object-cover"
                 />
