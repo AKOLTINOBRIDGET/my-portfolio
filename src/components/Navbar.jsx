@@ -16,7 +16,7 @@ const Navbar = ({ isScrolled, activeSection }) => {
 
   const socialLinks = [
     { icon: <Github size={20} />, href: 'https://github.com/AKOLTINOBRIDGET', label: 'GitHub', color: 'hover:text-purple-600 dark:hover:text-purple-400' },
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn', color: 'hover:text-blue-600 dark:hover:text-blue-400' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/bridget-tino-akol-a6912a356', label: 'LinkedIn', color: 'hover:text-blue-600 dark:hover:text-blue-400' },
     { icon: <Mail size={20} />, href: 'mailto:akoltinobridget03@gmail.com', label: 'Email', color: 'hover:text-indigo-600 dark:hover:text-indigo-400' },
   ];
 
