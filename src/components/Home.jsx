@@ -117,8 +117,8 @@ const Home = () => {
                 <Mail size={20} /> Contact Me
               </motion.a>
               <motion.a
-                href="/resume.pdf"
-                download="Bridget_Tino_Akol_CV.pdf"
+                href={`${import.meta.env.BASE_URL}resume.pdf`}
+                download="AKOL_TINO_BRIDGET_CV.pdf"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-indigo-600 transition-all backdrop-blur-sm flex items-center gap-2 btn btn-primary"
