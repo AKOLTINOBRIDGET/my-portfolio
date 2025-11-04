@@ -15,8 +15,10 @@ const Projects = () => {
       description:
         "A comprehensive data management platform for NGOs to manage projects, HR, and M&E workflows efficiently.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
-      image: "from-blue-600 to-green-400",
-      github: "https://github.com/AKOLTINORIDGET/onims",
+      image: "from-orange-600 to-blue-900",
+      
+      
+      // github: "https://github.com/AKOLTINORIDGET/onims",
       video: onimsVideo, 
       screenshots: [onimsDashboard, onimsHR, onimsProjects],
       featured: true,
@@ -33,6 +35,20 @@ const Projects = () => {
       featured: false,
       date: "2023",
     },
+     {
+      title: "School Management Report System",
+      description:
+        "A comprehensive Schhol management platform for Educative institutions to manage student data as per student,class for easy and efficient data Management (in progress).",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "TailwindCSS"],
+      image: "from-green-600 to-gray-400",
+      
+      
+      // github: "https://github.com/AKOLTINORIDGET/onims",
+      // video: onimsVideo, 
+      // screenshots: [onimsDashboard, onimsHR, onimsProjects],
+      // featured: true,
+      date: "2025",
+     },
   ];
 
   // Automatically cycle through screenshots every 3 seconds
