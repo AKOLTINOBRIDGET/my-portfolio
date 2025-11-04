@@ -120,7 +120,7 @@ const Contact = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/akoltinobridget"
+                  href="https://www.linkedin.com/in/bridget-tino-akol-a6912a356"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-indigo-100 text-indigo-900 p-3 rounded-full hover:bg-indigo-200 transition"
