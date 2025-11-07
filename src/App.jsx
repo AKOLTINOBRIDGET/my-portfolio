@@ -11,12 +11,18 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
 
+  // Dark mode state
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem('theme') === 'dark';
+  });
+
+  // Scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-      
+
       const sections = ['home', 'about', 'skills', 'projects', 'contact'];
-      const current = sections.find(section => {
+      const current = sections.find((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -28,11 +34,8 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
-    // Simulate loading
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+
+    const timer = setTimeout(() => setIsLoading(false), 1000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -40,17 +43,37 @@ function App() {
     };
   }, []);
 
+  // Apply dark mode globally
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [darkMode]);
+
   if (isLoading) {
     return (
-      <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
-        <div className="w-16 h-16 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
+      <div className="fixed inset-0 bg-white dark:bg-gray-900 flex items-center justify-center z-50">
+        <div className="w-16 h-16 border-4 border-orange-500 dark:border-orange-400 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white pt-0 mt-0">
-      <Navbar isScrolled={isScrolled} activeSection={activeSection} />
+    <div
+      className={`min-h-screen transition-colors duration-500 ${
+        darkMode ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-900'
+      }`}
+    >
+      <Navbar
+        isScrolled={isScrolled}
+        activeSection={activeSection}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode} // Pass setter for toggling
+      />
       <Home />
       <About />
       <Skills />
