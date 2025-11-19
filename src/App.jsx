@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
@@ -11,9 +12,13 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
 
-  // Dark mode state
+  // Dark mode state - initialize from localStorage or system preference
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('theme') === 'dark';
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   // Scroll detection
@@ -34,7 +39,6 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     const timer = setTimeout(() => setIsLoading(false), 1000);
 
     return () => {
@@ -63,16 +67,12 @@ function App() {
   }
 
   return (
-    <div
-      className={`min-h-screen transition-colors duration-500 ${
-        darkMode ? 'bg-gray-900 text-gray-100' : 'bg-white text-gray-900'
-      }`}
-    >
+    <div className="min-h-screen transition-colors duration-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Navbar
         isScrolled={isScrolled}
         activeSection={activeSection}
         darkMode={darkMode}
-        setDarkMode={setDarkMode} // Pass setter for toggling
+        setDarkMode={setDarkMode}
       />
       <Home />
       <About />
