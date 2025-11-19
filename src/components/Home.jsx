@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, Download, ArrowDown, Sparkles } from 'lucide-react';
-import Portforlio3 from '../assets/portforlio3.jpg'; // adjust this path to match the actual image file in your project (e.g. src/assets or public)
+import Portforlio2 from '../assets/portforlio2.jpg'; // adjust this path to match the actual image file in your project (e.g. src/assets or public)
 
 const Home = () => {
   const containerVariants = {
@@ -174,7 +174,7 @@ const Home = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 via-purple-600/20 to-pink-600/20 dark:from-indigo-400/10 dark:via-purple-400/10 dark:to-pink-400/10 z-10"></div>
                 
                 <img 
-                  src={Portforlio3}
+                  src={Portforlio2}
                   alt="Bridget Tino Akol - Frontend Developer" 
                   className="w-full h-full object-cover"
                 />

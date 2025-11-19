@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github, Linkedin, Mail, Sun, Moon, Download } from 'lucide-react';
 
-const Navbar = ({ isScrolled, activeSection }) => {
+const Navbar = ({ isScrolled, activeSection, darkMode, setDarkMode }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
+  
   const navLinks = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
@@ -35,32 +34,8 @@ const Navbar = ({ isScrolled, activeSection }) => {
     },
   ];
 
-  // Persistent dark mode
-  useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme === 'dark') {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else if (storedTheme === 'light') {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove('dark');
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setIsDarkMode(prefersDark);
-      if (prefersDark) document.documentElement.classList.add('dark');
-    }
-  }, []);
-
   const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    if (newMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    setDarkMode(!darkMode);
   };
 
   const handleScrollToSection = (href) => {
@@ -73,14 +48,9 @@ const Navbar = ({ isScrolled, activeSection }) => {
     }
   };
 
-  // Updated background - more opaque to prevent white space appearance
   const navbarBg = isScrolled
     ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-200 dark:border-gray-800'
     : 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200/50 dark:border-gray-800/50';
-
-  const textColor = isScrolled
-    ? 'text-gray-900 dark:text-white'
-    : 'text-gray-900 dark:text-white';
 
   return (
     <motion.nav
@@ -153,7 +123,7 @@ const Navbar = ({ isScrolled, activeSection }) => {
 
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-2">
-            {/* Dark Mode */}
+            {/* Dark Mode Toggle */}
             <motion.button
               whileHover={{ scale: 1.1, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
@@ -162,12 +132,24 @@ const Navbar = ({ isScrolled, activeSection }) => {
               aria-label="Toggle dark mode"
             >
               <AnimatePresence mode="wait" initial={false}>
-                {isDarkMode ? (
-                  <motion.div key="sun" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                {darkMode ? (
+                  <motion.div 
+                    key="sun" 
+                    initial={{ rotate: -90, opacity: 0 }} 
+                    animate={{ rotate: 0, opacity: 1 }} 
+                    exit={{ rotate: 90, opacity: 0 }} 
+                    transition={{ duration: 0.2 }}
+                  >
                     <Sun size={20} />
                   </motion.div>
                 ) : (
-                  <motion.div key="moon" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <motion.div 
+                    key="moon" 
+                    initial={{ rotate: 90, opacity: 0 }} 
+                    animate={{ rotate: 0, opacity: 1 }} 
+                    exit={{ rotate: -90, opacity: 0 }} 
+                    transition={{ duration: 0.2 }}
+                  >
                     <Moon size={20} />
                   </motion.div>
                 )}
@@ -288,7 +270,7 @@ const Navbar = ({ isScrolled, activeSection }) => {
                       className="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-700 dark:text-gray-300"
                       aria-label="Toggle dark mode"
                     >
-                      {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+                      {darkMode ? <Sun size={20} /> : <Moon size={20} />}
                     </motion.button>
 
                     <div className="flex space-x-2">
