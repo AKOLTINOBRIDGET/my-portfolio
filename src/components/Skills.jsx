@@ -120,12 +120,6 @@ const Skills = () => {
             <span>Professional Skills</span>
           </motion.div>
           
-          <h3 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-            Skills & Expertise
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-            Building modern web applications with cutting-edge technologies and best practices
-          </p>
         </motion.div>
 
         {/* Tech Stack Section */}

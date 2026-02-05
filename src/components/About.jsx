@@ -56,15 +56,15 @@ const About = () => {
           >
             <motion.div variants={itemVariants} className="space-y-5">
               <p className="text-xl text-gray-800 dark:text-gray-200 font-semibold leading-relaxed border-l-4 border-indigo-500 pl-4">
-                I'm a **Full-Stack Developer** focused on building clean, high-performance web applications, backed by over <span className="text-indigo-600 dark:text-indigo-400">2 years of professional experience</span>.
+                I'm a **Full-Stack Developer** focused on building clean, high-performance web applications, backed by over <span className="text-indigo-600 dark:text-indigo-400">1 year of professional experience</span>.
               </p>
 
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                My core specialization lies in **React** and modern **JavaScript** for the frontend, combined with robust backend development using **Python (Django/DRF)**. I excel at taking concepts from initial design to successful deployment, having delivered <span className="font-medium text-purple-600 dark:text-purple-400">4+ full-stack projects</span> for happy clients/partners.
+                My core specialization lies in **React** and modern **JavaScript** for the frontend, combined with  backend development . I excel at taking concepts from initial design to successful deployment, having delivered <span className="font-medium text-purple-600 dark:text-purple-400">1 full-stack 2 frontend projects</span> for happy clients/partners.
               </p>
 
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Beyond standard web development, I leverage data tools like **Power BI** and **Pandas** for actionable insights and have a keen interest in **embedded systems**, bridging software functionality with the physical world. My approach is always **user-centered**, ensuring responsive design and optimized performance across all solutions.
+                Beyond standard web development, and  for actionable insights and have a keen interest in **embedded systems**, bridging software functionality with the physical world. My approach is always **user-centered**, ensuring responsive design and optimized performance across all solutions.
               </p>
             </motion.div>
             
