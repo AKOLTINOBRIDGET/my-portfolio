@@ -74,8 +74,7 @@ const Home = () => {
               <span className="text-gray-900 dark:text-white">Hi, I'm</span>
               <br />
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-                Bridget Tino Akol
-              </span>
+AKOL TINO BRIDGET              </span>
             </motion.h1>
             
             {/* Subtitle */}
@@ -175,7 +174,7 @@ const Home = () => {
                 
                 <img 
                   src={Portforlio2}
-                  alt="Bridget Tino Akol - Frontend Developer" 
+                  alt="AKOL TINO BRIDGET- Frontend Developer" 
                   className="w-full h-full object-cover"
                 />
                 
