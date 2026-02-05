@@ -29,11 +29,11 @@ const Projects = () => {
       title: "Portfolio CMS",
       description:
         "Headless CMS built for creatives, featuring customizable templates, drag-and-drop editing, and built-in SEO optimization.",
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "TailwindCSS"],
+      technologies: ["React",   "TailwindCSS"],
       gradient: "from-purple-500 via-pink-500 to-rose-500",
       github: "https://github.com/AKOLTINORIDGET/my-portfolio",
       featured: false,
-      date: "2023",
+      date: "2025",
       category: "Frontend",
       status: "Completed",
     },
